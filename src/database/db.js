@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 require('../config/config')
 
 mongoose.connect(process.env.URLDB, {
+    keepAlive: true,
     useNewUrlParser: true,
     useUnifiedTopology: true
 },

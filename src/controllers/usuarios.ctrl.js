@@ -3,23 +3,36 @@ const Usuario = require("../models/usuario.model");
 const usuarioCtrl = {};
 
 usuarioCtrl.getUsuarios = async(req, res, next) => {
-    const usuarios = await Usuario.find();
-    res.json(usuarios);
+    await Usuario.find()
+    .exec((err, usuarios) => {
+        if (err) {
+            return res.status(400).json({
+                ok: false,
+                err
+            })
+        }
+        return res.status(200).json({
+            ok: true,
+            status: 200,
+            count: usuarios.length,
+            usuarios
+        })
+    })
 };
 
 usuarioCtrl.createUsuario = async(req, res, next) => {
     const usuario = new Usuario({
         tNombre: req.body.nombre,
         tApellido: req.body.apellido,
-        tNombreUsuario: req.body.uName,
+        tNombreUsuario: req.body.userName,
         tTelefono: req.body.telefono,
         tContrasena: req.body.contrasena,
-        tImagenPerfil: req.body.imagePerfil
+        tImagenPerfil: req.body.imgPerfil
     });
     await usuario.save();
     res.json({ 
         status: "usuario created",
-        usuario: usuario
+        usuario
     });
 };
 

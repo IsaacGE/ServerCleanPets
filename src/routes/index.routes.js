@@ -2,7 +2,10 @@
 const express = require('express');
 const app = express();
 
-app.use('/usuario', require('./usuario.routes'));
-
+app.use('/usuarios', require('./usuario.routes'));
+app.use('/citas', require('./citas.routes'))
+app.use('/servicios', require('./servicios.routes'))
+app.use('/tickets', require('./tickets.routes'))
+app.use('/auth', require('./auth.routes'))
 
 module.exports = app;

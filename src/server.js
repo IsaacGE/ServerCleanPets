@@ -26,5 +26,7 @@ app.listen(process.env.PORT, () => {
 
 
 //Routes
-//-> Agrupando rutas en index.routes.js
+//-> Importando todas las rutas agrupadas
 app.use('/api', require('./routes/index.routes'));
+
+module.exports = app
