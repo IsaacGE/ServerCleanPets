@@ -3,9 +3,9 @@ const router = express.Router()
 
 const servicio = require("../controllers/servicios.ctrl");
 
-router.get("/", servicio.getServicios);
+router.get("/getServicios", servicio.getServicios);
 
-router.post("/", servicio.createServicio);
+router.post("/createServicio", servicio.createServicio);
 
 router.get("/:id", servicio.getServicio);
 

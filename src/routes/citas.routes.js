@@ -3,9 +3,9 @@ const router = express.Router()
 
 const cita = require("../controllers/citas.ctrl");
 
-router.get("/", cita.getCitas);
+router.get("/getCitas", cita.getCitas);
 
-router.post("/", cita.createCita);
+router.post("/createCita", cita.createCita);
 
 router.get("/:id", cita.getCita);
 

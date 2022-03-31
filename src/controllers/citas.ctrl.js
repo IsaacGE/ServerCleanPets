@@ -3,20 +3,9 @@ const Cita = require("../models/citas.model");
 const citaCtrl = {};
 
 citaCtrl.getCitas = async(req, res, next) => {
-    await Cita.find()
-    .exec((err, citas) => {
-        if (err) {
-            return res.status(400).json({
-                ok: false,
-                err
-            })
-        }
-        return res.status(200).json({
-            ok: true,
-            status: 200,
-            count: citas.length,
-            citas
-        })
+    const citas = await Cita.find()
+    res.status(200).json({
+        citas
     })
 };
 
