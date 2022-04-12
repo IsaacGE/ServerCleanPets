@@ -27,10 +27,6 @@ const usuarioSchema = new Schema(
             type: String,
             required: [true, "ingresa la contraseña"]
         },
-        fhFechaRegistro: {
-            type: Date,
-            default: new Date()
-        },
         bUsuarioActivo: {
             type: Boolean,
             default: true
@@ -38,10 +34,10 @@ const usuarioSchema = new Schema(
         tImagenPerfil: {
             type: String,
         },
-        roles: [{
+        rol: {
             ref: "Rol",
             type: Schema.Types.ObjectId
-        }]
+        }
     },
     {
         versionKey: false,

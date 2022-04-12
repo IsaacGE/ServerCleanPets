@@ -22,10 +22,6 @@ const citaSchema = new Schema(
             type: Date,
             required: [true, "ingresa la fecha en que solicitas el servicio"]
         },
-        fhFechaRegistro: {
-            type: Date,
-            default: new Date()
-        },
         fhFechaEdicion: {
             type: Date
         },

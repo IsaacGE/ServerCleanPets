@@ -7,8 +7,8 @@ mongoose.connect(process.env.URLDB, {
     useUnifiedTopology: true
 },
     (err, resp) => {
-        if (err) throw err;
-        console.log('DataBase Connection:', process.env.URLDB.green);
+        if (err) throw err; //Arroja error
+        console.log('DataBase Connection:', process.env.URLDB.green); //todo bien
     });
 
 module.exports = mongoose;

@@ -19,13 +19,6 @@ const servicioSchema = new Schema(
             type: String, 
             required: [true, "ingresa el tiempo apoximado de aplicaion"]
         },
-        fhFechaRegistro: {
-            type: Date,
-            default: new Date()
-        },
-        fhFechaEdicion: {
-            type: Date
-        },
         bServicioActivo: {
             type: Boolean,
             default: true
