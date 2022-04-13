@@ -7,7 +7,10 @@ verifySingUp.checkDuplicateUsername = async (req, res, next) => {
     try {
         const user = await User.findOne({ tNombreUsuario: req.body.nombreUsuario });
         if (user) {
-            return res.status(400).json({ message: "The userNAme already exists" });
+            return res.status(400).json({ 
+                ok: false,
+                message: "The userNAme already exists"
+            });
         } else {
             next();
         }
@@ -16,15 +19,15 @@ verifySingUp.checkDuplicateUsername = async (req, res, next) => {
     }
 };
 
-verifySingUp.checkRolesExisted = (req, res, next) => {
+verifySingUp.checkRolesExisted = async (req, res, next) => {
     if (req.body.rol) {
-        if (!Rol.includes(req.body.rol)) {
+        const checkRol = await Rol.findOne({tNombre: req.body.rol})
+        if (!checkRol) {
             return res.status(400).json({
                 message: `Role ${req.body.rol} does not exist`,
             });
         }
     }
-
     next();
 };
 

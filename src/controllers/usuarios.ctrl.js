@@ -37,7 +37,7 @@ usuarioCtrl.createUsuario = async(req, res, next) => {
 };
 
 usuarioCtrl.getUsuario = async(req, res, next) => {
-    const { id } = req.params;
+    const id = req.query.id
     const usuario = await Usuario.findById(id);
     res.json(usuario);
 };

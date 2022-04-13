@@ -7,7 +7,7 @@ router.get("/getUsuarios", usuario.getUsuarios);
 
 router.post("/createUsuario", usuario.createUsuario);
 
-router.get("/:id", usuario.getUsuario);
+router.get("/getUsuario", usuario.getUsuario);
 
 router.put("/:id", usuario.editUsuario);
 
